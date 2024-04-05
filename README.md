@@ -6,8 +6,8 @@ This repository contains a simple web application built with HTML, CSS, and Java
 
 ### User Registration: 
 Users can sign up by providing necessary information such as username, email, and password through a user-friendly registration form.
+![register](https://github.com/mzmakm00/DataTable-Product-Management/assets/148120123/71c0c81e-aad2-4e34-a598-fd40b23061b0)
 
-![Registration Page](/images/register.png)
 ### User Login: 
 Registered users can securely log in using their credentials.
 
