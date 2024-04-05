@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Data Table</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  </head>
+  <body>
+         <div class="sidebar">
+        <div class="top">
+          <div class="logo">
+            <i class="bx bxl-codepen"></i>
+            <span style="margin-left: 5px;">Product Dashboard</span>
+        </div>
+        <i class="bx bx-menu" id="bx-menuid"></i>
+        </div>
+        <div class="user">
+          <img src="images/default.jpg" alt="" class="userside-img" />
+          <div class="user_Data bold">
+            <div class="userName" id="userName"></div>
+            <div class="userEmail" id="userEmail"></div>
+        </div>        
+        </div>
+        <ul>
+          <li>
+            <a href="#" class="current">
+              <i class="bx bx-grid-alt"></i>
+              <span class="sidenav-item ">DataTable</span>
+            </a>
+            <span class="side-tooltip">DataTable</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bxs-shopping-bag"></i>
+              <span class="sidenav-item">Products</span>
+            </a>
+            <span class="side-tooltip">Products</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-list-check"></i>
+              <span class="sidenav-item">Categories</span>
+            </a>
+            <span class="side-tooltip">Categories</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bxs-food-menu"></i>
+              <span class="sidenav-item">Orders</span>
+            </a>
+            <span class="side-tooltip">Orders</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-body"></i>
+              <span class="sidenav-item">Customers</span>
+            </a>
+            <span class="side-tooltip">Customers</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-location-plus"></i>
+              <span class="sidenav-item">Shipping</span>
+            </a>
+            <span class="side-tooltip">Shipping</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bx bx-cog"></i>
+              <span class="sidenav-item">Settings</span>
+            </a>
+            <span class="side-tooltip">Settings</span>
+          </li>
+          <li>
+            <a href="#" class= "removeLogout">
+              <i class="bx bx-log-out"></i>
+              <span class="sidenav-item">Logout</span>
+            </a>
+            <span class="side-tooltip">Logout</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="DashboardContentDiv ">
+      <div class="DashboardContentDiv-container2" style="padding-top: 4rem;">
+    <div class="Data">DATA TABLE</div>
+    <!-- <button onclick()= "logout()" class="logout">Log Out</button> -->
+    <div class="main">
+      <div class="filters">
+        <div class = "ProductColumnDiv">
+          <div><button class="AddProductButton" role="button">Add Product</button></div>
+        <div class="dropdownColumns">
+          <button class="dropbtnCC">Custom Columns</button>
+          <div class="dropdown-contentDiv">
+            <button class="default-column" data-column="Column 1">
+              Column 1
+            </button>
+            <button class="default-column" data-column="Column 2">
+              Column 2
+            </button>
+            <input type="text" id="customColumnNameinput" placeholder="Custom name"
+            />
+            <button id="addCustomColumnBtn">Add Custom Column</button>
+          </div>
+        </div>
+        </div>
+        <div class="filtersdiv">
+          <label class="labelfilters" for="columnSelect">Filters:</label>
+          <select id="columnSelect">
+            <option value="id">ID</option>
+            <option value="productName">Product Name</option>
+            <option value="productTitle">Product Title</option>
+            <option value="productDescription">Product Description</option>
+            <option value="productVendor">Product Vendor</option>
+            <option value="inStock">In Stock</option>
+            <option value="buyingPrice">Buying Price</option>
+            <option value="salePrice">Sale Price</option>
+            <option value="purchaseQuantity">Purchase Quantity</option>
+            <option value="productType">Product Type</option>
+            <option value="shippingRates">Shipping Rates</option>
+            <option value="refillLimit">Refill Limit</option>
+            <option value="productAddress">Product Address</option>
+          </select>
+          <input type="text1" id="searchInput" placeholder="Search..." />
+        </div>
+      </div>
+
+    <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="fixed-column" style="background-color: teal">
+                Select option
+              </th>
+              <th class="sort" data-sort="SrNo">
+                ID <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productName">
+                Product Name <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productTitle">
+                Product Title <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productDescription">
+                Product Description <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productVendor">
+                Product Vendor <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="inStock">
+                In Stock <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="buyingPrice">
+                Buying Price <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="salePrice">
+                Sale Price <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="purchaseQuantity">
+                Purchase Quantity <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productType">
+                Product Type <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="shippingRates">
+                Shipping Rates <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="refillLimit">
+                Refill Limit <i class="fas fa-sort"></i>
+              </th>
+              <th class="sort" data-sort="productAddress">
+                Product Location Address <i class="fas fa-sort"></i>
+              </th>
+              <th class="fixedaction" style="background-color: teal">
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody id="tbody1"></tbody>
+        </table>
+    </div>
+
+
+    </div>      
+  
+    <div id="editModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="Eclose">&times;</span>
+          <h1>Edit Product</h1>
+        </div>
+        <form id="Updateform">
+
+          <label for="editProductName" class="modal-label">Product Name</label>
+          <input type="text" id="editProductName" /><br />
+
+          <label for="editProductTitle" class="modal-label"
+            >Product Title</label
+          >
+          <input type="text" id="editProductTitle" /><br />
+
+          <label for="editProductDescrip" class="modal-label"
+            >Product Description</label
+          >
+          <input type="text" id="editProductDescrip" /><br />
+
+          <label for="editProductVendor" class="modal-label"
+            >Product Vendor</label
+          >
+          <input type="text" id="editProductVendor" /><br />
+
+          <label for="editinStock" class="modal-label">In Stock</label>
+          <input type="text" id="editinStock" /><br />
+
+          <label for="editbuyingPrice" class="modal-label">Buying Price</label>
+          <input type="text" id="editbuyingPrice" /><br />
+
+          <label for="editsalePrice" class="modal-label">Sale Price</label>
+          <input type="text" id="editsalePrice" /><br />
+
+          <label for="editpurchaseQuantity" class="modal-label">Purchase Quantity</label>
+          <input type="text" id="editpurchaseQuantity" /><br />
+
+          <label for="editproductType" class="modal-label">Product Type</label>
+          <input type="text" id="editproductType" /><br />
+
+          <label for="editshipping" class="modal-label">Shipping Rates</label>
+          <input type="text" id="editshipping" /><br />
+
+          <label for="editRefillLimit" class="modal-label">Refill Limit</label>
+          <input type="text" id="editRefillLimit" /><br />
+
+          <label for="editlocationAdress" class="modal-label"
+            >Product Location Address</label
+          >
+          <input type="text" id="editlocationAdress" /><br />
+
+          <button type="submit" form="Updateform" class="Updateform-submit">Update</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="viewModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="Vclose">&times;</span>
+          <h1>View Product</h1>
+        </div>
+        <form>
+
+          <label for="viewProductName" class="modal-label">Product Name</label>
+          <input type="text" id="viewProductName"  disabled/><br />
+
+          <label for="viewProductTitle" class="modal-label">Product Title</label>
+          <input type="text" id="viewProductTitle" disabled/><br />
+
+          <label for="viewProductDescrip" class="modal-label">Product Description</label>
+          <input type="text" id="viewProductDescrip" disabled/><br />
+
+          <label for="viewProductVendor" class="modal-label">Product Vendor</label>
+          <input type="text" id="viewProductVendor" disabled/><br />
+
+          <label for="viewinStock" class="modal-label">In Stock</label>
+          <input type="text" id="viewinStock" disabled/><br />
+
+          <label for="viewbuyingPrice" class="modal-label">Buying Price</label>
+          <input type="text" id="viewbuyingPrice" disabled/><br />
+
+          <label for="viewsalePrice" class="modal-label">Sale Price</label>
+          <input type="text" id="viewsalePrice" disabled/><br />
+
+          <label for="viewpurchaseQuantity" class="modal-label">Purchase Quantity</label>
+          <input type="text" id="viewpurchaseQuantity" disabled/><br />
+
+          <label for="viewproductType" class="modal-label">Product Type</label>
+          <input type="text" id="viewproductType" disabled/><br />
+
+          <label for="viewshipping" class="modal-label">Shipping Rates</label>
+          <input type="text" id="viewshipping" disabled/><br />
+
+          <label for="viewRefillLimit" class="modal-label">Refill Limit</label>
+          <input type="text" id="viewRefillLimit" disabled/><br />
+
+          <label for="viewlocationAdress" class="modal-label">Product Location Address</label>
+          <input type="text" id="viewlocationAdress" disabled/><br />
+        </form>
+      </div>
+    </div>
+    
+    <div id="AddProductModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="closeProduct">&times;</span>
+          <h1 >Add Product</h1>
+        </div>
+        <form id="addform">
+          
+          <label for="addProductName" class="modal-label">Product Name</label>
+          <input type="text" id="addProductName" /><br />
+
+          <label for="addProductTitle" class="modal-label">Product Title</label>
+          <input type="text" id="addProductTitle" /><br />
+
+          <label for="addProductDescrip" class="modal-label">Product Description</label>
+          <input type="text" id="addProductDescrip" /><br />
+
+          <label for="addProductVendor" class="modal-label">Product Vendor</label>
+          <input type="text" id="addProductVendor" /><br />
+
+          <label for="addinStock" class="modal-label">In Stock</label>
+          <input type="text" id="addinStock" /><br />
+
+          <label for="addbuyingPrice" class="modal-label">Buying Price</label>
+          <input type="text" id="addbuyingPrice" /><br />
+
+          <label for="addsalePrice" class="modal-label">Sale Price</label>
+          <input type="text" id="addsalePrice" /><br />
+
+          <label for="addpurchaseQuantity" class="modal-label">Purchase Quantity</label>
+          <input type="text" id="addpurchaseQuantity" /><br />
+
+          <label for="addproductType" class="modal-label">Product Type</label>
+          <input type="text" id="addproductType" /><br />
+
+          <label for="addshipping" class="modal-label">Shipping Rates</label>
+          <input type="text" id="addshipping" /><br />
+
+          <label for="addRefillLimit" class="modal-label">Refill Limit</label>
+          <input type="text" id="addRefillLimit" /><br />
+
+          <label for="addlocationAdress" class="modal-label">Product Location Address</label>
+          <input type="text" id="addlocationAdress" /><br />
+
+          <button type="submit" form="addform" class="Addform-submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    
+    <div id="AddsuccessMessage">Data has been added successfully !</div>
+    <div id="UpdatesuccessMessage">Successfully ! Data has been Updated</div>
+    <div id="DeleteMessage">Data has been deleted Successfully ! </div>
+
+
+    <div id="errorModal" class="modal" style="display: none; ">
+      <div class="modal-content" style="background-color: #f44336;">
+        <span class="close" style="color: white;">&times;</span>
+        <h2 style="text-align: center; color: white;">Error</h2>
+        <p style="color: white;">Can't add with empty fields.</p>
+      </div>
+    </div>
+    
+    </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>
