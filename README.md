@@ -7,21 +7,21 @@ This repository contains a simple web application built with HTML, CSS, and Java
 ### User Registration: 
 Users can sign up by providing necessary information such as username, email, and password through a user-friendly registration form.
 
-![Registration Page](images/register.png)
+![Registration Page](/images/register.png)
 ### User Login: 
 Registered users can securely log in using their credentials.
 
-![Login Page](images/login.png)
+![Login Page](/images/login.png)
 
 ### Authentication: 
 Authentication mechanisms are implemented to ensure secure access to user-specific features and data.
 
-![Authentication](images/showingerror.png)
+![Authentication](/images/showingerror.png)
 
 ### Product Management:
 Product Table: A product table is developed within the web application to store and manage product data.
 
-![main](images/mainDashboard.png)
+![main](/images/mainDashboard.png)
 
 
 ## CRUD Operations: 
@@ -37,7 +37,7 @@ Delete: Users can securely remove unwanted products from the product table.
 
 Access Control: Only authenticated users with appropriate permissions can access the product management features.
 
-![localStorage](images/withlocalStorage.png)
+![localStorage](/images/withlocalStorage.png)
 
 # Technologies Used
 Frontend : HTML , CSS, JavaScript
